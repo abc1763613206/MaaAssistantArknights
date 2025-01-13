@@ -37,6 +37,9 @@ namespace MaaWpfGui.Services
         public static extern unsafe bool AsstSetInstanceOption(AsstHandle handle, AsstInstanceOptionKey key, byte* value);
 
         [DllImport("MaaCore.dll")]
+        public static extern bool AsstSetStaticOption(AsstStaticOptionKey key, [MarshalAs(UnmanagedType.LPUTF8Str)]string value);
+
+        [DllImport("MaaCore.dll")]
         public static extern unsafe bool AsstLoadResource(byte* dirname);
 
         [DllImport("MaaCore.dll")]
@@ -56,6 +59,9 @@ namespace MaaWpfGui.Services
 
         [DllImport("MaaCore.dll")]
         public static extern bool AsstStop(AsstHandle handle);
+
+        [DllImport("MaaCore.dll")]
+        public static extern unsafe Int32 AsstAsyncScreencap(AsstHandle handle, bool block);
 
         [DllImport("MaaCore.dll")]
         public static extern unsafe ulong AsstGetImage(AsstHandle handle, byte* buff, ulong buffSize);
